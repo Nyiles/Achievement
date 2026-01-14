@@ -1,6 +1,6 @@
 import {  useState } from "react";
 import { useMyContext } from "../../Global/Global";
-import { json } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 function Authorization(){
     const [newUsername, setNewUsername] = useState("");
@@ -16,6 +16,8 @@ function Authorization(){
     const[isLoggingIn, setIsLoggingIn] = useState(true);
 
     const {userId,setUserId,username,setUsername} = useMyContext();
+
+
 
 
     return (
@@ -67,6 +69,9 @@ function Authorize({newUsername, newPassword,setNewUsername,setNewPassword, isRe
         })
     },[])
     */
+
+    const navigate = useNavigate();
+
     const login = ()=>{
 
          const user = {
@@ -86,6 +91,9 @@ function Authorize({newUsername, newPassword,setNewUsername,setNewPassword, isRe
             data => {
                 setUsername(data.username);
                 setUserId(data.userId);
+        })
+        .then(()=>{
+            navigate("/");
         })
 
         

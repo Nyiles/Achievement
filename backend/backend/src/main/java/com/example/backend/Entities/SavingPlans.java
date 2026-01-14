@@ -14,13 +14,19 @@ public class SavingPlans {
     private Long savingPlansId;
 
     @Column
+    private Long userId; 
+
+    @Column
     private String startDate;
 
     @Column
     private String duration;
 
     @Column
-    private String information;
+    private Integer savePercentage;
+
+    @Column
+    private Integer spendPercentage;
 
     @Column 
     private Boolean isActive;
@@ -30,28 +36,57 @@ public class SavingPlans {
 
     }
 
-    public SavingPlans(String startDate, String duration, String information, Boolean isActive){
+    public SavingPlans(String startDate, String duration, Integer savePercentage, Integer spendPercentage, Boolean isActive){
         this.startDate = startDate;
         this.duration = duration;
-        this.information = information;
+        this.savePercentage = savePercentage;
+        this.spendPercentage = spendPercentage;
         this.isActive = isActive;
+    }
+
+    public Long getUserId(){
+        return this.userId;
     }
 
     public String getStartDate(){
         return this.startDate;
     }
 
+    public void setStartDate(String newStartDate){
+        this.startDate = newStartDate;
+    }
+
     public String getDuration(){
         return this.duration;
     }
 
-
-    public String getInformation(){
-        return this.information;
+    public void getDuration(String newDuration){
+        this.duration = newDuration;
     }
 
-    public Boolean getisActive(){
+    public Integer getSpendPercentage(){
+        return this.spendPercentage;
+    }
+
+    public void setSpendPercentage(Integer newSpendPercentage){
+        this.spendPercentage = newSpendPercentage;
+    }
+
+    public Integer getSavePercentage(){
+        return this.savePercentage;
+    }
+
+     public void setSavePercentage(Integer newSavePercentage){
+        this.savePercentage = newSavePercentage;
+    }
+
+
+    public Boolean getIsActive(){
         return this.isActive;
+    }
+
+    public void setIsActive(Boolean newIsActive){
+        this.isActive = newIsActive;
     }
 
 }
